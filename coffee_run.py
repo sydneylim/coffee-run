@@ -187,26 +187,86 @@ def history(coffee_data):
 
 # function to display program functionality
 def help(filepath):
-    print("------------------------- COFFEE RUNS -------------------------")
-    print("---------------- Whose turn is it to pay today?----------------")
-    print("---------------------------------------------------------------\n")
-    print("When a group of coworkers go on a coffee run, only one coworker \n\
-pays for all the coffees to ease the checkout process. \n\
-Considering that not all drinks cost the same, they encounter \n\
-a problem every day: Whose turn is it to pay today?\n")
-    print("---------------------------------------------------------------\n")
+    print("================================== COFFEE RUN ===================================")
+    print("------------------------- Whose turn is it to pay today?-------------------------")
+    print("---------------------------------------------------------------------------------")
+    print("When a group of coworkers go on a coffee run, only one coworker pays for all the \n\
+coffees to ease the checkout process. Considering that not all drinks cost the \n\
+same, they encounter a problem every day: Whose turn is it to pay today?")
+    print("==================================================================================\n")
+    print("=====================================NOTES========================================")
     print("Data persistently stored at: ", filepath)
+    print("---------------------------------------------------------------------------------")
+    print("REQUIREMENTS:\n\
+    - all names specified are exactly one word\n\
+    - no names are 'Payer' or 'Total'\n\
+    - all datetime arguments are formatted as follows: mm/dd/YYYY HH:MM:SS\n\
+    - keep in mind that all commands and arguments are case sensitive")
+    print("==================================================================================\n")
 
+    print("=====================================USAGE========================================")
+
+    print("usage: python coffee_run.py <command> [arguments]")
+    print("---------------------------------------------------------------------------------")
+    print("The following commands will be used interactively if no arguments are specified:")
+    print("    add_run\n    edit_run\n    delete_run")
+    print("---------------------------------------------------------------------------------")
+
+    print("commands:")
+    print("    calc_payer   -- calculate whose turn it is to pay next \n\
+                    optional: specify anyone not present to pay\n")
+    print("    add_run      -- record new coffee run data\n")
+    print("    edit_run     -- edit data on a past coffee run, including \n\
+                    modifying the payer, modifying an existing drink, \n\
+                    or adding another consumer\n")
+    print("    delete_run   -- delete data on a past coffee run\n")
+    print("    history      -- view all past coffee run data\n")
+    print("    help         -- display this help menu")
+
+    print("---------------------------------------------------------------------------------")
+    print("syntax for options:")
+    print('    calc_payer [name] ...\n\
+        [name] -- specify a list of people not present, so they will not be \n\
+                  selected to pay. if no names are specified, all consumers \n\
+                  of past coffee runs will be included in calculating whose \n\
+                  turn it is to pay. each name must be a single word, \n\
+                  separated by a space.')
+    print("---------------------------------------------------------------------------------")
+    print("syntax for command line (non-interactive) use:")
+    print('    add_run <payer name> <consumer name> <consumer price> ...\n\
+        <payer name>                     -- the first argument must specify the \n\
+                                            name of the payer\n\n\
+        <consumer name> <consumer drink> -- the name of a consumer that went on \n\
+                                            a coffee run, followed by the price \n\
+                                            of their drink. if there are multiple \n\
+                                            consumers, simply list the names and \n\
+                                            prices in pairs separated by a space.\n')
+
+    print('    edit_run <datetime> <type> <payer data/drink data>\n\
+        <datetime>   -- the first argument must specify the datetime of the run \n\
+                        to be edited, formatted as mm/dd/YYYY HH:MM:SS.\n\n\
+        <type>       -- the second argument must specify the editing type. \n\
+                        options: [Payer, Drink]\n\
+                        - Payer: modifies the payer name of the specified run. \n\
+                                 must be followed by <payer data>.\n\
+                        - Drink: modifies the drink data of the specified run. \n\
+                                 must be followed by <drink data>. \n\n\
+        <payer data> -- specifies the new payer name. \n\n\
+                        used when the type selected is <Payer>.\n\n\
+        <drink data> -- specifies a consumer name, followed by the price of \n\
+                        their drink, separated by a space. if the consumer \n\
+                        was already in the specified coffee run, the previous \n\
+                        price will be overwritten. if the consumer was not in the \n\
+                        specified coffee run, they will be added to that\n\
+                        coffee run. if the consumer has not previously been a \n\
+                        part of any coffee runs, they will be added to the \n\
+                        coffee run history table. \n\n\
+                        used when the type selected is <Drink>. \n')
     
-    print("Usage: python coffee_run.py <command> [arguments]")
-    print()
-    print("Commands:")
-    print('  calc_payer [absent name] -- Calculate whose turn it is to pay. Add in anyone not present for the next coffee run to be excluded from being selected as the next payer.')
-    print('  add_run [payer name] [consumer name] [consumer price] ... -- Record who paid today, and how much everyones drinks cost')
-    print('  edit_run [run date] [run time] [Payer/Drink] [New Payer Name/New Consumer Name and Price] -- edit data on a past coffee run')
-    print('  delete_run [run date] [run time] -- delete data on a past coffee run')
-    print('  history -- get all past coffee run data')
-    print('  help -- display help menu')
+    print('    delete_run <datetime>\n\
+        <datetime> -- the first argument must specify the datetime of the run \n\
+                      to be edited, formatted as mm/dd/YYYY HH:MM:SS.\n')
+    print("==================================================================================\n")
 
 
 if __name__=="__main__":
