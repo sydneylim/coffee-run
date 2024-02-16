@@ -54,10 +54,6 @@ Type 'Done' when finished.\n")
                 drink = input("Input <consumer name> <drink cost> (Type 'Done' when finished): ")
             
             coffee_data = add_run(coffee_data, new_run_data)
-        
-        # print()
-        # history(coffee_data)
-        # print("\nSuccessfully added coffee run.")
 
         try:
             coffee_data.to_csv(filepath)
