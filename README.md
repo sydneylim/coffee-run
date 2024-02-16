@@ -70,6 +70,7 @@ python coffee_run.py <command> [args]
 > - All commands and arguments are case-sensitive
 > - All names and prices specified cannot contain spaces
 > - No names can be "Payer" or "Total"
+> - All names must be unique
 > - All prices must be valid numbers
 > - All datetime arguments must be formatted as `mm/dd/YYYY HH:MM:SS`
 > - Only one coffee run can be added per second
@@ -111,7 +112,7 @@ edit_run <datetime> <type> <payer_data, drink_data>
 | Argument | Description |
 | --- | --- |
 | `<datetime>` | The first argument must specify the datetime of the run to be edited, formatted as `mm/dd/YYYY HH:MM:SS`. |
-| `<type>` | The second argument must specify the type of data to be edited. <br> **Options**: [Payer, Drink] <br> `Payer`: Modifies the payer name of the specified run. Must be followed by `<payer data>`. <br> `Drink`: Modifies the drink data of a specified run. Must be followed by `<drink data>`. |
+| `<type>` | The second argument must specify the type of data to be edited. <br> **Options**: [Payer, Drink] <br> `Payer`: Modifies the payer name of the specified run. Must be followed by `<payer_data>`. <br> `Drink`: Modifies the drink data of a specified run. Must be followed by `<drink_data>`. |
 | `<payer_data>` | Specifies the new payer name for the specified run. <br><br> Used when the type selected is `Payer`. |
 | `<drink_data>` | Specifies the consumer name, followed by the price of their drink, separated by a space. If the consumer was already in the specified coffee run, the previously recorded price will be overwritten. If the consumer was not in the specified coffee run, they will be added to that coffee run. If they consumer has not previously been a part of any coffee runs, they will also be added to the coffee run history table. <br><br> Used when the type selected is `Drink`. |
 
