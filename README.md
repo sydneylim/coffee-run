@@ -20,7 +20,7 @@ This program can record, edit, and delete data of each coffee run, including who
 This program uses a command line interface. Some commands will have an option to either be used interactively (the user will be prompted to enter data), or through command line arguments. The syntax for both will be specified under **Usage**.
 
 ### Data Storage
-The coffee run data will be persistently stored in a `.csv` file. The filename can be found through the help menu under **Notes**:
+The coffee run data will be persistently stored in a `.csv` file. The filename can be found through the help menu under **Notes**. If the help menu does not display correctly, try expanding the width of your terminal.
 ```
 python coffee_run.py help
 ```
